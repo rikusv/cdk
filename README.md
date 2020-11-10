@@ -20,6 +20,7 @@ The rest is similar to any JavaScript/Node.js 'package.json' driven project.
 Run `npm run build`, or keep a window open with `npm run watch` to generate JavaScript from TypeScript source.
 
 ```bash
+cdk bootstrap --context env=any # Before first deploy into account/region to create CloudFormation resources
 cdk deploy --context env=target # Deploy all stacks to environment 'target'
 cdk deploy OpengazettesStack-target  --context env=target # Deploy only Opengazettes stack
 cdk diff OpengazettesStack-target  --context env=target # Compare deployed Opengazettes stack with to be deployed state

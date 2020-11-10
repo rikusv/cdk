@@ -1,0 +1,8 @@
+{
+  "opengazettes": {
+    "bucketArn": {
+      "prd": "arn:aws:s3:::SOME-BUCKET-NAME",
+      "stg": "arn:aws:s3:::open-temp-stg"
+    }
+  }
+}

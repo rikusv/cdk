@@ -1,14 +1,26 @@
-# Welcome to your CDK TypeScript project!
+# AWS CDK provisioning
 
-This is a blank project for TypeScript development with CDK.
+This is an example of provisioning infrastructure on AWS with AWS CDK.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+Apart from the typical, the following has been added:
 
-## Useful commands
+- `env-config.json` is used to provide configuration values per stack, per environment. Some long-running environments may already have some resources - these can be identified here by ARN. Default values across environments can be provides using value '*' for the environment.
+- `src/env-config.ts` provides an `EnvConfig` class that can be used per stack for easy access to environment config from `env-config.json`.
 
- * `npm run build`   compile typescript to js
- * `npm run watch`   watch for changes and compile
- * `npm run test`    perform the jest unit tests
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk synth`       emits the synthesized CloudFormation template
+## Setup
+
+Install [AWS CLI 2](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html).
+
+Install AWS CDK: `npm install -g aws-cdk`.
+
+The rest is similar to any JavaScript/Node.js 'package.json' driven project.
+
+## Deploying
+
+Run `npm run build`, or keep a window open with `npm run watch` to generate JavaScript from TypeScript source.
+
+```bash
+cdk deploy --context env=target # Deploy all stacks to environment 'target'
+cdk deploy OpengazettesStack-target  --context env=target # Deploy only Opengazettes stack
+cdk diff OpengazettesStack-target  --context env=target # Compare deployed Opengazettes stack with to be deployed state
+```
